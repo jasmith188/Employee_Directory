@@ -1,42 +1,44 @@
 import React from "react";
 import API from "../utils/API";
-import Container from "./Container"
-import SearchForm from "./SearchForm"
+import Container from "./Container";
+import SearchForm from "./SearchForm";
+import Jumbotron from "./Jumbotron";
 
 class Main extends React.Component {
     state = {
-        search: "",
-        employees: []
+        employees: [],
+        search: ""
     }
 
     componentDidMount() {
+
         API.getEmployees()
             .then(data => {
                 console.log(data);
                 this.setState({
                     employees: data.data.results
                 })
-
             })
-           
     }
 
+
+    // When the form is submitted, search the OMDB API for the value of `this.state.search`
+    handleFormSubmit = event => {
+        event.preventDefault();
+        this.searchEmployees(this.state.search);
+    };
 
     render() {
         return (
             <Container>
-                <div className="jumbotron">
-                    <h1 className="text-center">Employee Management</h1>
-                    <p>
-                        <SearchForm
-                            value={this.state.search}
-                            handleInputChange={this.handleInputChange}
-                            handleFormSubmit={this.handleFormSubmit}
-                        />
-                    </p>
-                </div>
-
-                <table className="table">
+                <Jumbotron>
+                </Jumbotron>
+                <SearchForm
+                    name="Employees"
+                    type="Name"
+                    handleFormSubmit={this.handleInputChange}
+                />
+                <table className="table striped bordered hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -65,8 +67,9 @@ class Main extends React.Component {
                         ))}
                     </tbody>
                 </table>
-
             </Container>
+
+
         )
     }
 
