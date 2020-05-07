@@ -1,8 +1,11 @@
 import React from "react";
 import API from "../utils/API";
+import Container from "./Container"
+import SearchForm from "./SearchForm"
 
 class Main extends React.Component {
     state = {
+        search: "",
         employees: []
     }
 
@@ -15,17 +18,26 @@ class Main extends React.Component {
                 })
 
             })
-            .catch(err => console.log(err));
-
+           
     }
+
 
     render() {
         return (
-            <div>
-                <container className="container min-width 300px">
+            <Container>
+                <div className="jumbotron">
+                    <h1 className="text-center">Employee Management</h1>
+                    <p>
+                        <SearchForm
+                            value={this.state.search}
+                            handleInputChange={this.handleInputChange}
+                            handleFormSubmit={this.handleFormSubmit}
+                        />
+                    </p>
+                </div>
+
                 <table className="table">
                     <thead>
-
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Picture</th>
@@ -41,7 +53,7 @@ class Main extends React.Component {
                         {this.state.employees.map((employee, i) => (
                             <tr key={i}>
                                 <th scope="row">{i}</th>
-                                <td><img src={employee.picture.thumbnail} alt =""/></td>
+                                <td><img src={employee.picture.thumbnail} alt="" /></td>
                                 <td>{employee.name.first}</td>
                                 <td>{employee.name.last}</td>
                                 <td>{employee.email}</td>
@@ -53,8 +65,8 @@ class Main extends React.Component {
                         ))}
                     </tbody>
                 </table>
-                </container>
-            </div>
+
+            </Container>
         )
     }
 
