@@ -1,23 +1,10 @@
 import React from "react";
 
-Function Table(props) {
-    return
+function Table(props) {
+    return <div className={`table${props.fluid ? "-fluid" : ""}`}>{props.children}</div>;
+  }
 
 
 
 
-
-
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-
-}
+export default Table;
