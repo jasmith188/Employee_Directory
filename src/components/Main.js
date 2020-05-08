@@ -28,6 +28,45 @@ class Main extends React.Component {
         this.searchEmployees(this.state.search);
     };
 
+    //sort first name
+    sortFirstName(a, b)  {
+        if (a.name.first < b.name.first) {
+          return -1;
+        }
+        if (a.name.first > b.name.first) {
+          return 1;
+        }
+        return 0;
+      };
+
+      onClickFirstName = () => {
+          if (this.state.order === false) {
+              this.setState({
+                  sort: this.state.employees.sort(this.sortFirstName),
+                  order: true
+              })
+          }
+          else {
+              this.setState({
+                sort: this.state.employees.reverse(),
+                order: false
+              })
+          }
+      }
+
+      //sort last name
+    // sortFirstName(a, b) => {
+    //     if (a.name.last < b.name.last) {
+    //       return -1;
+    //     }
+    //     if (a.name.last > b.name.last) {
+    //       return 1;
+    //     }
+    //     return 0;
+    //   };
+      
+    
+
     render() {
         return (
             <Container>
@@ -43,7 +82,7 @@ class Main extends React.Component {
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Picture</th>
-                            <th scope="col">First Name</th>
+                            <th scope="col" onClick={this.onClickFirstName}>First Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Cell Phone Number</th>
