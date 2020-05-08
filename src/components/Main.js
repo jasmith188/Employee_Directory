@@ -113,7 +113,7 @@ class Main extends React.Component {
 
     render() {
         return (
-            <Container>
+            <Container className="color: blue">
                 <Jumbotron>
                 </Jumbotron>
                 <SearchForm
