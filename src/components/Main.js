@@ -116,7 +116,7 @@ class Main extends React.Component {
             <Container className="color: blue">
                 <Jumbotron>
                 </Jumbotron>
-                <SearchForm
+                <SearchForm 
                     name="Employees"
                     type="Name"
                     handleFormSubmit={this.handleInputChange}
