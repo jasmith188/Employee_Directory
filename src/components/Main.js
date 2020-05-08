@@ -80,6 +80,33 @@ class Main extends React.Component {
         }
     }
 
+      //sort age
+      sortAge(a, b) {
+        if (a.dob.age < b.dob.age) {
+          return -1;
+        }
+        if (a.dob.age > b.dob.age) {
+          return 1;
+        }
+        return 0;
+      };
+
+      onClickAge = () => {
+        if (this.state.order === false) {
+            this.setState({
+                sort: this.state.employees.sort(this.sortAge),
+                order: true
+            })
+        }
+        else {
+            this.setState({
+              sort: this.state.employees.reverse(),
+              order: false
+            })
+        }
+    }
+
+
       
       
     
@@ -103,7 +130,7 @@ class Main extends React.Component {
                             <th scope="col" onClick={this.onClickLastName}>Last Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Cell Phone Number</th>
-                            <th scope="col">Age</th>
+                            <th scope="col" onClick={this.onClickAge}>Age</th>
                         </tr>
                     </thead>
                     <tbody>
