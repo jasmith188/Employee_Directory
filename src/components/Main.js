@@ -113,7 +113,7 @@ class Main extends React.Component {
 
     render() {
         return (
-            <Container className="color: blue">
+            <Container>
                 <Jumbotron>
                 </Jumbotron>
                 <SearchForm 
@@ -121,7 +121,7 @@ class Main extends React.Component {
                     type="Name"
                     handleFormSubmit={this.handleInputChange}
                 />
-                <table className="table striped bordered hover">
+                <table className="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>

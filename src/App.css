@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.jumbotron {
+  background-color: lightslategray;
+}
+
+.table {
+  background-color: lightslategrey;
+}
+
+body {
+  background-color: darkgray;
+}
