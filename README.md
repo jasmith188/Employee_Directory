@@ -1,6 +1,6 @@
 # Employee_Directory
 
-# Fitness Tracker
+
 
 ## Description 
 This Employee directory is created with React.  You are able to view your entire employee directory at once so you have quick access to their information.
